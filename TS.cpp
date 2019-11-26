@@ -83,6 +83,8 @@ TS::~TS ( )
 #ifdef MAP
     cerr << "Appel au destructeur de TS" << endl;
 #endif
+
+    delete[] mt;
 } //----- Fin de ~TS
 
 
