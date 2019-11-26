@@ -35,6 +35,16 @@ void Trajet::Afficher() const
 #endif
 }
 
+Ville Trajet::getDepart() const
+{
+    return this->depart;
+}
+
+Ville Trajet::getArrivee() const
+{
+    return this->arrivee;
+}
+
 /*
 //------------------------------------------------- Surcharge d'opérateurs
 Trajet & Trajet::operator = ( const Trajet & unTrajet )

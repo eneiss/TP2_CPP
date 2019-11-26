@@ -37,6 +37,10 @@ public:
     // Contrat :
     //
 
+    Ville getDepart() const;
+
+    Ville getArrivee() const;
+
     virtual void Afficher() const;
     // Methode virtuelle pure -> a redef dans les classes filles
 
