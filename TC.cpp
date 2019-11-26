@@ -43,25 +43,24 @@ TC::TC ( const TC & unTC )
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <TC>" << endl;
+    cout << "Appel au constructeur de copie de TC" << endl;
 #endif
 } //----- Fin de TC (constructeur de copie)
 
 
-TC::TC ( const unsigned int nbTrajets , const Trajet* const listeTraj)
-        : nbTS(nbTrajets)       //, sousTrajets(listeTraj)
+TC::TC ( const unsigned int nbTrajets , Trajet** const listeTraj)
+        : nbTS(nbTrajets)
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <TC>" << endl;
+    cout << "Appel au constructeur de TC" << endl;
 #endif
     // initialisation de sousTrajets
     int i;
-    sousTrajets = new Trajet[nbTrajets];
-
+    sousTrajets = new Trajet* [nbTrajets];    // allocation dynamique -> pas dans la pile
     for (i = 0; i < nbTrajets; ++i) {
-        sousTrajets[i] = Trajet(listeTraj[i]);  // non ?
+        sousTrajets[i] = listeTraj[i];
     }
 } //----- Fin de TC
 
@@ -71,7 +70,7 @@ TC::~TC ( )
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <TC>" << endl;
+    cout << "Appel au destructeur de TC" << endl;
 #endif
 
     delete[] sousTrajets;

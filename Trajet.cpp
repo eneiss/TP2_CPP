@@ -6,7 +6,7 @@
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Réalisation de la classe <Trajet> (fichier Trajet.cpp) ------------
+//---------- Réalisation de la classe Trajet (fichier Trajet.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -31,7 +31,7 @@ using namespace std;
 void Trajet::Afficher() const
 {
 #ifdef MAP
-    cout << "Appel à la méthode Afficher de Trajet (pas normal car virtual)" << endl;
+    cout << "Appel à la méthode Afficher de Trajet" << endl;
 #endif
 }
 
@@ -51,7 +51,7 @@ Trajet::Trajet ( const Trajet & unTrajet )
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Trajet>" << endl;
+    cout << "Appel au constructeur de copie de Trajet" << endl;
 #endif
 } //----- Fin de Trajet (constructeur de copie)
 
@@ -61,7 +61,7 @@ Trajet::Trajet ( const Ville & villeDepart, const Ville & villeArrivee)
 // Passage par ref pour eviter une deuxieme copie des villes
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Trajet>" << endl;
+    cout << "Appel au constructeur de Trajet" << endl;
 #endif
 } //----- Fin de Trajet
 
@@ -71,7 +71,7 @@ Trajet::~Trajet ( )
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Trajet>" << endl;
+    cout << "Appel au destructeur de Trajet" << endl;
 #endif
 } //----- Fin de ~Trajet
 

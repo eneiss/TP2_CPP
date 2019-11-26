@@ -1,12 +1,12 @@
 /*************************************************************************
                            Trajet  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 19/11/2019
+    copyright            : (C) 2019 par NEISS Emma et DUPONT Yann
+    e-mail               : -
 *************************************************************************/
 
-//---------- Interface de la classe <Trajet> (fichier Trajet.h) ----------------
+//---------- Interface de la classe Trajet (fichier Trajet.h) ----------------
 #if ! defined ( TRAJET_H )
 #define TRAJET_H
 
@@ -17,9 +17,10 @@
 
 //------------------------------------------------------------------ Types
 typedef string Ville;
+typedef string MT;
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Trajet>
+// Rôle de la classe Trajet
 //
 //
 //------------------------------------------------------------------------
@@ -78,7 +79,7 @@ protected:
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <Trajet>
+//-------------------------------- Autres définitions dépendantes de Trajet
 
 #endif // TRAJET_H
 

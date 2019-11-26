@@ -1,12 +1,12 @@
 /*************************************************************************
                            TC  -  description
                              -------------------
-    début                : $DATE$
+    début                : 19/11/2019
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe <TC> (fichier TC.h) ----------------
+//---------- Interface de la classe TC (fichier TC.h) ----------------
 #if ! defined ( TC_H )
 #define TC_H
 
@@ -18,12 +18,12 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <TC>
+// Rôle de la classe TC
 //
 //
 //------------------------------------------------------------------------
 
-class TC : public Ancetre
+class TC : public Trajet
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -51,7 +51,7 @@ public:
     // Contrat :
     //
 
-    TC ( const unsigned int nbTrajets = 0 , const Trajet* listeTraj = nullptr);
+    TC ( unsigned int nbTrajets = 0, Trajet** listeTraj = nullptr);
     // Mode d'emploi :
     //
     // Contrat :
@@ -71,11 +71,11 @@ protected:
 //----------------------------------------------------- Attributs protégés
 
     unsigned int nbTS;
-    Trajet* sousTrajets;
+    Trajet **sousTrajets;
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <TC>
+//-------------------------------- Autres définitions dépendantes de TC
 
 #endif // TC_H
 

@@ -52,7 +52,7 @@ TS::TS ( const TS & unTS )
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <TS>" << endl;
+    cout << "Appel au constructeur de copie de TS" << endl;
 #endif
 } //----- Fin de TS (constructeur de copie)
 
@@ -63,7 +63,7 @@ TS::TS ( const Ville & villeDepart, const Ville & villeArrivee, const MT & moyen
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <TS>" << endl;
+    cout << "Appel au constructeur de TS" << endl;
 #endif
 } //----- Fin de TS
 
@@ -73,7 +73,7 @@ TS::~TS ( )
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <TS>" << endl;
+    cout << "Appel au destructeur de TS" << endl;
 #endif
 } //----- Fin de ~TS
 

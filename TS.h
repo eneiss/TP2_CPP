@@ -1,12 +1,12 @@
 /*************************************************************************
                            TS  -  description
                              -------------------
-    début                : $DATE$
+    début                : 19/11/2019
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe <TS> (fichier TS.h) ----------------
+//---------- Interface de la classe TS (fichier TS.h) ----------------
 #include "Trajet.h"
 
 #if ! defined ( TS_H )
@@ -20,7 +20,7 @@
 typedef string MT;
 
 //------------------------------------------------------------------------
-// Rôle de la classe <TS>
+// Rôle de la classe TS
 //
 //
 //------------------------------------------------------------------------
@@ -77,7 +77,7 @@ protected:
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <TS>
+//-------------------------------- Autres définitions dépendantes de TS
 
 #endif // TS_H
 
