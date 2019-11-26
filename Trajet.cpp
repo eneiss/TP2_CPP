@@ -76,6 +76,11 @@ Trajet::Trajet ( const Ville & villeDepart, const Ville & villeArrivee)
 } //----- Fin de Trajet
 
 
+Trajet::Trajet() {
+    depart = nullptr ;
+    arrivee = nullptr;
+}
+
 Trajet::~Trajet ( )
 // Algorithme :
 //

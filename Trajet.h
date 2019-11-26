@@ -69,6 +69,9 @@ public:
     // Contrat :
     //
 
+    Trajet();
+    // constructeur par defaut
+
     virtual ~Trajet ( );
     // Mode d'emploi :
     //
