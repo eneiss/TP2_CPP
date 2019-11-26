@@ -31,7 +31,7 @@ using namespace std;
 void TC::Afficher() const
 {
 #ifdef MAP
-    cout << "Appel à la méthode Afficher de TC" << endl;
+    cerr << "Appel à la méthode Afficher de TC" << endl;
 #endif
     cout << "de " << depart << " à " << arrivee << " via ";
     int i;
@@ -56,7 +56,7 @@ TC::TC ( const TC & unTC )
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de TC" << endl;
+    cerr << "Appel au constructeur de copie de TC" << endl;
 #endif
 } //----- Fin de TC (constructeur de copie)
 
@@ -67,7 +67,7 @@ TC::TC ( const unsigned int nbTrajets , Trajet** const listeTraj)
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de TC" << endl;
+    cerr << "Appel au constructeur de TC" << endl;
 #endif
     // initialisation de sousTrajets
     int i;
@@ -83,7 +83,7 @@ TC::~TC ( )
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de TC" << endl;
+    cerr << "Appel au destructeur de TC" << endl;
 #endif
 
     int i;

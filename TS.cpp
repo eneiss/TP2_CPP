@@ -32,10 +32,11 @@ using namespace std;
 void TS::Afficher() const
 {
 #ifdef MAP
-    cout << "Appel à la méthode Afficher de TS" << endl;
+    cerr << "Appel à la méthode Afficher de TS" << endl;
 #endif
     cout << "de " << depart << " à " << arrivee << " en " << mt << endl;
 }
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 //TS & TS::operator = ( const TS & unTS )
@@ -52,7 +53,7 @@ TS::TS ( const TS & unTS )
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de TS" << endl;
+    cerr << "Appel au constructeur de copie de TS" << endl;
 #endif
 } //----- Fin de TS (constructeur de copie)
 
@@ -63,7 +64,7 @@ TS::TS ( const Ville & villeDepart, const Ville & villeArrivee, const MT & moyen
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de TS" << endl;
+    cerr << "Appel au constructeur de TS" << endl;
 #endif
 } //----- Fin de TS
 
@@ -73,7 +74,7 @@ TS::~TS ( )
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de TS" << endl;
+    cerr << "Appel au destructeur de TS" << endl;
 #endif
 } //----- Fin de ~TS
 

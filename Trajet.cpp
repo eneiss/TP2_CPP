@@ -31,7 +31,7 @@ using namespace std;
 void Trajet::Afficher() const
 {
 #ifdef MAP
-    cout << "Appel à la méthode Afficher de Trajet" << endl;
+    cerr << "Appel à la méthode Afficher de Trajet" << endl;
 #endif
     cout << "Trajet de " << depart << " à " << arrivee << endl;
 }
@@ -62,7 +62,7 @@ Trajet::Trajet ( const Trajet & unTrajet )
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de Trajet" << endl;
+    cerr << "Appel au constructeur de copie de Trajet" << endl;
 #endif
 } //----- Fin de Trajet (constructeur de copie)
 
@@ -72,7 +72,7 @@ Trajet::Trajet ( const Ville & villeDepart, const Ville & villeArrivee)
 // Passage par ref pour eviter une deuxieme copie des villes
 {
 #ifdef MAP
-    cout << "Appel au constructeur de Trajet" << endl;
+    cerr << "Appel au constructeur de Trajet" << endl;
 #endif
 } //----- Fin de Trajet
 
@@ -87,7 +87,7 @@ Trajet::~Trajet ( )
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de Trajet" << endl;
+    cerr << "Appel au destructeur de Trajet" << endl;
 #endif
 } //----- Fin de ~Trajet
 
