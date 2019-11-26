@@ -13,6 +13,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <cstring>
 
 //------------------------------------------------------ Include personnel
 #include "TS.h"
@@ -59,13 +60,19 @@ TS::TS ( const TS & unTS )
 
 
 TS::TS ( const Ville & villeDepart, const Ville & villeArrivee, const MT & moyenTransp)
-        : Trajet(villeDepart, villeArrivee), mt(moyenTransp)
+        : Trajet(villeDepart, villeArrivee)
 // Algorithme :
 //
 {
 #ifdef MAP
     cerr << "Appel au constructeur de TS" << endl;
 #endif
+
+    mt = new char[strlen(moyenTransp) + 1];
+    unsigned int i;
+    for (i = 0; i < strlen(moyenTransp) + 1; ++i) {
+        mt[i] = moyenTransp[i];
+    }
 } //----- Fin de TS
 
 
