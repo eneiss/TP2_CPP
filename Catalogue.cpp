@@ -30,8 +30,8 @@ void Catalogue::Afficher() const
 {
     unsigned int i;
     for (i = 0; i < tailleAct; i++) {
-        cout << i+1 << " : ";
-        listeTrajets[i].Afficher();
+        cout << i+1 << " - ";
+        listeTrajets[i]->Afficher();
     }
 }
 
@@ -41,20 +41,27 @@ void Catalogue::AjouterTrajet()
     cerr << "Appel a la methode AjouterTrajet de Catalogue" << endl;
 #endif
     // on determine si l'utilisateur veut ajouter un trajet simple ou compose
-    cout << "Trajet simple : 1, trajet simpl : 2" << endl;
-    int choix = 0;
-    while(choix != 1 && choix != 2) {
-        cin >> choix;
-        if(choix != 1 && choix != 2){
-            cout << "Choix incorrect" << endl;
-        }
+    cout << "1 : Trajet simple;   2 : Trajet compose" << endl;
+    char choix = 0;
+    cin.get(choix);
+    cin >> choix;
+    /*if(cin.good()){
+        break;
+    } else {
+        cin.clear();
+    }*/
+    while(choix != '1' && choix != '2') {
+        //cin.clear();
+        cout << "Choix incorrect" << endl;
+        cin.get(choix);
+        //cin >> choix; cin.ignore();
     }
 
     Ville villeDepart = new char[30];
     Ville villeArrivee = new char[30];
     MT mt = new char[30];
     unsigned int nbSections = 0;
-    if(choix == 2){ // si c'est un trajet compose
+    if(choix == '2'){ // si c'est un trajet compose
         cout << "Nombre de sections :" << endl;
         cin >> nbSections;
         cout << "1er trajet" << endl;
@@ -67,7 +74,7 @@ void Catalogue::AjouterTrajet()
     cin >> mt;
 
     Trajet * newTrajet;
-    if(choix == 1){
+    if(choix == '1'){
         newTrajet = new TS(villeDepart, villeArrivee, mt);
     } else { //if (choix == 2){ // on lit les entrees pour determiner toutes les sections du trajet
         Trajet ** newListeTrajets = new Trajet*[nbSections];
@@ -90,7 +97,7 @@ void Catalogue::AjouterTrajet()
     if(tailleAct == tailleMax){
         AggrandirListe();
     }
-    listeTrajets[tailleAct] = *newTrajet;
+    listeTrajets[tailleAct] = newTrajet;
     tailleAct++;
 }
 
@@ -101,15 +108,17 @@ void Catalogue::RechercheTrajet() const
 #endif
     Ville villeDepart = new char[30];
     Ville villeArrivee = new char[30];
+    cout << "Ville de depart :" << endl;
     cin >> villeDepart;
+    cout << "Ville d'arrivee :" << endl;
     cin >> villeArrivee;
     unsigned int i;
     for (i = 0; i < tailleAct; i++) {
         //if((villeDepart.compare(listeTrajets[i].getDepart())) && (villeArrivee.compare(listeTrajets[i].getArrivee()))){
-        if((strcmp(villeDepart, listeTrajets[i].getDepart()) == 0) && (strcmp(villeArrivee, listeTrajets[i].getArrivee()) == 0)){
+        if((strcmp(villeDepart, listeTrajets[i]->getDepart()) == 0) && (strcmp(villeArrivee, listeTrajets[i]->getArrivee()) == 0)){
             cout << "Trajet trouve : ";
-            listeTrajets[i].Afficher();
-            break;
+            listeTrajets[i]->Afficher();
+            //break;
         }
     }
 }
@@ -125,10 +134,10 @@ Catalogue::Catalogue ( const Catalogue & unCatalogue )
 #endif
     tailleMax = unCatalogue.tailleMax;
     tailleAct = unCatalogue.tailleAct;
-    listeTrajets = new Trajet[unCatalogue.tailleMax];
+    listeTrajets = new Trajet*[unCatalogue.tailleMax];
     unsigned int i;
     for (i = 0; i < tailleAct; i++) {
-        listeTrajets[i] = Trajet(unCatalogue.listeTrajets[i]);
+        listeTrajets[i] = new Trajet(*unCatalogue.listeTrajets[i]);
     }
 } //----- Fin de Catalogue (constructeur de copie)
 
@@ -140,7 +149,7 @@ Catalogue::Catalogue ( )
 #ifdef MAP
     cerr << "Appel au constructeur de <Catalogue>" << endl;
 #endif
-    listeTrajets = new Trajet[TAILLEDEFAUT];
+    listeTrajets = new Trajet*[TAILLEDEFAUT];
     tailleMax = TAILLEDEFAUT;
     tailleAct = 0;
 } //----- Fin de Catalogue
@@ -155,8 +164,9 @@ Catalogue::~Catalogue ( )
 #endif
     unsigned int i;
     for (i = 0; i < tailleAct; i++) {
-        delete & listeTrajets[i];
+        delete listeTrajets[i];
     }
+    delete[] listeTrajets;
 } //----- Fin de ~Catalogue
 
 
@@ -170,12 +180,12 @@ void Catalogue::AggrandirListe()
     cerr << "Appel a la methode AggrandirListe de Catalogue" << endl;
 #endif
     tailleMax = 2 * tailleMax;
-    Trajet * nouvelleListeTrajets = new Trajet[tailleMax];
+    Trajet ** nouvelleListeTrajets = new Trajet*[tailleMax];
     unsigned int i;
     for (i = 0; i < tailleAct; i++) {
         nouvelleListeTrajets[i] = listeTrajets[i];
     }
-    delete listeTrajets;
+    delete[] listeTrajets;
     listeTrajets = nouvelleListeTrajets;
 }
 

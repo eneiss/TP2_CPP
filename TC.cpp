@@ -6,7 +6,7 @@
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Réalisation de la classe TC (fichier TC.cpp) ------------
+//---------- Réalisation de la classe TC (fichier TC.cpp) ----------------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -28,6 +28,23 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
+void TC::Afficher() const
+{
+#ifdef MAP
+    cerr << "Appel à la méthode Afficher de TC" << endl;
+#endif
+    /*cout << "de " << depart << " à " << arrivee << " via ";
+    int i;
+    for (i = 0; i < nbTS - 2; ++i) {
+        cout << sousTrajets[i]->getArrivee() << ", ";
+    }
+    cout << " et " << sousTrajets[nbTS - 2]->getArrivee() << endl;*/
+
+    int i;
+    for (i = 0; i < nbTS; ++i) {
+        sousTrajets[i]->Afficher();
+    }
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 TC & TC::operator = ( const TC & unTC )
@@ -44,7 +61,7 @@ TC::TC ( const TC & unTC )
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de TC" << endl;
+    cerr << "Appel au constructeur de copie de TC" << endl;
 #endif
 } //----- Fin de TC (constructeur de copie)
 
@@ -55,7 +72,7 @@ TC::TC ( const unsigned int nbTrajets , Trajet** const listeTraj)
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de TC" << endl;
+    cerr << "Appel au constructeur de TC" << endl;
 #endif
     // initialisation de sousTrajets
     int i;
@@ -71,7 +88,7 @@ TC::~TC ( )
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de TC" << endl;
+    cerr << "Appel au destructeur de TC" << endl;
 #endif
 
     int i;

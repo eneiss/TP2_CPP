@@ -1,35 +1,28 @@
 /*************************************************************************
-                           Trajet  -  description
+                           Xxx  -  description
                              -------------------
-    début                : 19/11/2019
-    copyright            : (C) 2019 par NEISS Emma et DUPONT Yann
-    e-mail               : -
+    début                : $DATE$
+    copyright            : (C) $YEAR$ par $AUTHOR$
+    e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe Trajet (fichier Trajet.h) ------------
-#if ! defined ( TRAJET_H )
-#define TRAJET_H
+//---------- Interface de la classe <Xxx> (fichier Xxx.h) ----------------
+#if ! defined ( XXX_H )
+#define XXX_H
 
 //--------------------------------------------------- Interfaces utilisées
 
 //------------------------------------------------------------- Constantes
-#define MAP
-//#define MAX_CHAR_VILLE 30
-//#define MAX_CHAR_MT 20
 
 //------------------------------------------------------------------ Types
-//typedef char Ville[MAX_CHAR_VILLE];
-//typedef char MT[MAX_CHAR_MT];
-typedef char* Ville;
-typedef char* MT;
 
 //------------------------------------------------------------------------
-// Rôle de la classe Trajet
+// Rôle de la classe <Xxx>
 //
 //
 //------------------------------------------------------------------------
 
-class Trajet
+class Xxx : public Ancetre
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -41,28 +34,9 @@ public:
     // Contrat :
     //
 
-    Ville getDepart() const;
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-    Ville getArrivee() const;
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-
-    virtual void Afficher() const;
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //------------------------------------------------- Surcharge d'opérateurs
-    // Trajet & operator = ( const Trajet & unTrajet );
+    Xxx & operator = ( const Xxx & unXxx );
     // Mode d'emploi :
     //
     // Contrat :
@@ -70,26 +44,19 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Trajet ( const Trajet & unTrajet );
+    Xxx ( const Xxx & unXxx );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Trajet ( const Ville & villeDepart, const Ville & villeArrivee);
+    Xxx ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    Trajet();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-
-    virtual ~Trajet ( );
+    virtual ~Xxx ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -102,12 +69,9 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
-    Ville depart;
-    Ville arrivee;
-
 };
 
-//-------------------------------- Autres définitions dépendantes de Trajet
+//-------------------------------- Autres définitions dépendantes de <Xxx>
 
-#endif // TRAJET_H
+#endif // XXX_H
 

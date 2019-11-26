@@ -97,7 +97,7 @@ protected:
     //
 
 //----------------------------------------------------- Attributs protégés
-    Trajet * listeTrajets;
+    Trajet ** listeTrajets;
     unsigned int tailleAct, tailleMax;
 
 };
