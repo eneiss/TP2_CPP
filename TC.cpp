@@ -47,11 +47,11 @@ void TC::Afficher() const
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
-TC & TC::operator = ( const TC & unTC )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
+//TC & TC::operator = ( const TC & unTC )
+//// Algorithme :
+////
+//{
+//} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -91,9 +91,9 @@ TC::~TC ( )
     cerr << "Appel au destructeur de TC" << endl;
 #endif
 
-    int i;
+    unsigned int i;
     for (i = 0; i < nbTS ; ++i) {
-        delete[] sousTrajets[i];
+        delete sousTrajets[i];
     }
     delete[] sousTrajets;
 } //----- Fin de ~TC

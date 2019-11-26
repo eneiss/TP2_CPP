@@ -14,7 +14,7 @@
 
 //------------------------------------------------------------- Constantes
 #define MAP
-//#define MAX_CHAR_VILLE 30
+#define MAX_CHAR_VILLE 30
 //#define MAX_CHAR_MT 20
 
 //------------------------------------------------------------------ Types

@@ -13,6 +13,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <cstring>
 
 //------------------------------------------------------ Include personnel
 #include "Trajet.h"
@@ -57,7 +58,7 @@ Trajet & Trajet::operator = ( const Trajet & unTrajet )
 
 //-------------------------------------------- Constructeurs - destructeur
 Trajet::Trajet ( const Trajet & unTrajet )
-                : depart(unTrajet.depart), arrivee(unTrajet.arrivee)
+                : Trajet(unTrajet.depart, unTrajet.arrivee)
 // Algorithme :
 //
 {
@@ -68,18 +69,29 @@ Trajet::Trajet ( const Trajet & unTrajet )
 
 
 Trajet::Trajet ( const Ville & villeDepart, const Ville & villeArrivee)
-            : depart(villeDepart), arrivee(villeArrivee)
 // Passage par ref pour eviter une deuxieme copie des villes
 {
 #ifdef MAP
     cerr << "Appel au constructeur de Trajet" << endl;
 #endif
+
+    depart = new char[strlen(villeDepart) + 1]; // pour le \0
+    arrivee = new char[strlen(villeArrivee) + 1];
+
+    unsigned int i;
+    for (i = 0; i < strlen(villeDepart) + 1; ++i) { // copie du \0 aussi
+        depart[i] = villeDepart[i];
+    }
+    for (i = 0; i < strlen(villeArrivee) + 1; ++i) { // copie du \0 aussi
+        arrivee[i] = villeArrivee[i];
+    }
+
 } //----- Fin de Trajet
 
 
 Trajet::Trajet() {
-    depart = nullptr ;
-    arrivee = nullptr;
+    depart = new char[MAX_CHAR_VILLE];
+    arrivee = new char[MAX_CHAR_VILLE];
 }
 
 Trajet::~Trajet ( )
@@ -89,6 +101,9 @@ Trajet::~Trajet ( )
 #ifdef MAP
     cerr << "Appel au destructeur de Trajet" << endl;
 #endif
+    delete[] depart;
+    delete[] arrivee;
+
 } //----- Fin de ~Trajet
 
 
