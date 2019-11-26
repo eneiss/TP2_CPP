@@ -14,10 +14,14 @@
 
 //------------------------------------------------------------- Constantes
 #define MAP
+//#define MAX_CHAR_VILLE 30
+//#define MAX_CHAR_MT 20
 
 //------------------------------------------------------------------ Types
-typedef string Ville;
-typedef string MT;
+//typedef char Ville[MAX_CHAR_VILLE];
+//typedef char MT[MAX_CHAR_MT];
+typedef char* Ville;
+typedef char* MT;
 
 //------------------------------------------------------------------------
 // Rôle de la classe Trajet
@@ -59,7 +63,7 @@ public:
     // Contrat :
     //
 
-    Trajet ( const Ville & villeDepart = "Lyon", const Ville & villeArrivee = "Paris");
+    Trajet ( const Ville & villeDepart, const Ville & villeArrivee);
     // Mode d'emploi :
     //
     // Contrat :

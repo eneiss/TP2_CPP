@@ -6,7 +6,7 @@
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Réalisation de la classe <TC> (fichier TC.cpp) ------------
+//---------- Réalisation de la classe TC (fichier TC.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -39,6 +39,7 @@ TC & TC::operator = ( const TC & unTC )
 
 //-------------------------------------------- Constructeurs - destructeur
 TC::TC ( const TC & unTC )
+        : Trajet(unTC.depart, unTC.arrivee), nbTS(unTC.nbTS), sousTrajets(unTC.sousTrajets)
 // Algorithme :
 //
 {
@@ -49,7 +50,7 @@ TC::TC ( const TC & unTC )
 
 
 TC::TC ( const unsigned int nbTrajets , Trajet** const listeTraj)
-        : nbTS(nbTrajets)
+        : nbTS(nbTrajets), Trajet(listeTraj[0]->getDepart(), listeTraj[nbTrajets-1]->getArrivee())
 // Algorithme :
 //
 {
@@ -73,6 +74,10 @@ TC::~TC ( )
     cout << "Appel au destructeur de TC" << endl;
 #endif
 
+    int i;
+    for (i = 0; i < nbTS ; ++i) {
+        delete[] sousTrajets[i];
+    }
     delete[] sousTrajets;
 } //----- Fin de ~TC
 
