@@ -6,7 +6,7 @@
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe TC (fichier TC.h) ----------------
+//---------- Interface de la classe TC (fichier TC.h) --------------------
 #if ! defined ( TC_H )
 #define TC_H
 

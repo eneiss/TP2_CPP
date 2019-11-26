@@ -6,7 +6,7 @@
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe TS (fichier TS.h) ----------------
+//---------- Interface de la classe TS (fichier TS.h) --------------------
 #include "Trajet.h"
 
 #if ! defined ( TS_H )

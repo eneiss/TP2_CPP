@@ -6,7 +6,7 @@
     e-mail               : -
 *************************************************************************/
 
-//---------- Interface de la classe Trajet (fichier Trajet.h) ----------------
+//---------- Interface de la classe Trajet (fichier Trajet.h) ------------
 #if ! defined ( TRAJET_H )
 #define TRAJET_H
 

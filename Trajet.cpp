@@ -6,7 +6,7 @@
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Réalisation de la classe Trajet (fichier Trajet.cpp) ------------
+//---------- Réalisation de la classe Trajet (fichier Trajet.cpp) --------
 
 //---------------------------------------------------------------- INCLUDE
 
