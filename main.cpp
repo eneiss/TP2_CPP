@@ -30,7 +30,7 @@ int main() {
                 break;
             default:
                 cout << "Choix incorrect" << endl;
-                continue; // revenir au menu
+                continue; // revenir au menu }
         }
     }
     cout << "Au revoir !" << endl;

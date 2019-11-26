@@ -42,13 +42,19 @@ void Catalogue::AjouterTrajet()
 #endif
     // on determine si l'utilisateur veut ajouter un trajet simple ou compose
     cout << "1 : Trajet simple;   2 : Trajet compose" << endl;
-    char choix;
+    char choix = 0;
+    cin.get(choix);
     cin >> choix;
-    cin.ignore(10000, '\n');
+    /*if(cin.good()){
+        break;
+    } else {
+        cin.clear();
+    }*/
     while(choix != '1' && choix != '2') {
+        //cin.clear();
         cout << "Choix incorrect" << endl;
-        cin >> choix;
-        cin.ignore(10000, '\n');
+        cin.get(choix);
+        //cin >> choix; cin.ignore();
     }
 
     Ville villeDepart = new char[30];
@@ -124,7 +130,7 @@ Catalogue::Catalogue ( const Catalogue & unCatalogue )
 //
 {
 #ifdef MAP
-    cerr << "Appel au constructeur de copie de Catalogue" << endl;
+    cerr << "Appel au constructeur de copie de <Catalogue>" << endl;
 #endif
     tailleMax = unCatalogue.tailleMax;
     tailleAct = unCatalogue.tailleAct;
@@ -141,7 +147,7 @@ Catalogue::Catalogue ( )
 //
 {
 #ifdef MAP
-    cerr << "Appel au constructeur de Catalogue" << endl;
+    cerr << "Appel au constructeur de <Catalogue>" << endl;
 #endif
     listeTrajets = new Trajet*[TAILLEDEFAUT];
     tailleMax = TAILLEDEFAUT;
@@ -154,7 +160,7 @@ Catalogue::~Catalogue ( )
 //
 {
 #ifdef MAP
-    cerr << "Appel au destructeur de Catalogue" << endl;
+    cerr << "Appel au destructeur de <Catalogue>" << endl;
 #endif
     unsigned int i;
     for (i = 0; i < tailleAct; i++) {
