@@ -1,0 +1,176 @@
+/*************************************************************************
+                           Catalogue  -  description
+                             -------------------
+    début                : $DATE$
+    copyright            : (C) $YEAR$ par $AUTHOR$
+    e-mail               : $EMAIL$
+*************************************************************************/
+
+//----- Réalisation de la classe <Catalogue> (fichier Catalogue.cpp) -----
+
+//---------------------------------------------------------------- INCLUDE
+
+//-------------------------------------------------------- Include système
+using namespace std;
+
+//------------------------------------------------------ Include personnel
+#include "Catalogue.h"
+
+//------------------------------------------------------------- Constantes
+
+//----------------------------------------------------------------- PUBLIC
+
+//----------------------------------------------------- Méthodes publiques
+// type Catalogue::Méthode ( liste des paramètres )
+// Algorithme :
+//
+//{
+//} //----- Fin de Méthode
+void Catalogue::Afficher() const
+{
+    unsigned int i;
+    for (i = 0; i < tailleAct; i++) {
+        cout << i+1 << " : ";
+        listeTrajets[i].Afficher();
+    }
+}
+
+void Catalogue::AjouterTrajet()
+{
+#ifdef MAP
+    cerr << "Appel a la methode AjouterTrajet de Catalogue" << endl;
+#endif
+    // on determine si l'utilisateur veut ajouter un trajet simple ou compose
+    cout << "Trajet simple : 1, trajet simpl : 2" << endl;
+    int choix = 0;
+    while(choix != 1 && choix != 2) {
+        cin >> choix;
+        if(choix != 1 && choix != 2){
+            cout << "Choix incorrect" << endl;
+        }
+    }
+
+    Ville villeDepart, villeArrivee;
+    MT mt;
+    unsigned int nbSections = 0;
+    if(choix == 2){ // si c'est un trajet compose
+        cout << "Nombre de sections :" << endl;
+        cin >> nbSections;
+        cout << "1er trajet" << endl;
+    }
+    cout << "Ville de depart :" << endl;
+    cin >> villeDepart;
+    cout << "Ville d'arrivee :" << endl;
+    cin >> villeArrivee;
+    cout << "Moyen de transport :" << endl;
+    cin >> mt;
+
+    Trajet newTrajet;
+    if(choix == 1){
+        newTrajet = TS(villeDepart, villeArrivee, mt);
+    } else if (choix == 2){ // on lit les entrees pour determiner toutes les sections du trajet
+        Trajet * newListeTrajets = new Trajet[nbSections];
+        unsigned int i;
+        newListeTrajets[0] = Trajet(villeDepart, villeArrivee, mt);
+        for (i = 1; i < nbSections; i++) {
+            cout << i+1 << "e trajet" << endl;
+            cout << "Ville d'arrivee :" << endl;
+            cin >> villeArrivee;
+            cout << "Moyen de transport :" << endl;
+            cin >> mt;
+            newListeTrajets[i] = Trajet(villeDepart, villeArrivee, mt);
+        }
+        newTrajet = TC(nbSections, newListeTrajets);
+    }
+
+    // On place le nouveau trajet dans le catalogue
+    if(tailleAct == tailleMax){
+        AggrandirListe();
+    }
+    listeTrajets[tailleAct] = newTrajet;
+    tailleAct++;
+}
+
+void Catalogue::RechercheTrajet() const
+{
+#ifdef MAP
+    cerr << "Appel a la methode RechercheTrajet de Catalogue" << endl;
+#endif
+    Ville villeDepart, villeArrivee;
+    cin >> villeDepart;
+    cin >> villeArrivee;
+    unsigned int i;
+    for (i = 0; i < tailleAct; i++) {
+        if((villeDepart.compare(listeTrajets[i].depart)) && (villeArrivee.compare(listeTrajets[i].arrivee))){
+            cout << "Trajet trouve : ";
+            listeTrajets[i].Afficher();
+            break;
+        }
+    }
+}
+
+
+//-------------------------------------------- Constructeurs - destructeur
+Catalogue::Catalogue ( const Catalogue & unCatalogue )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cerr << "Appel au constructeur de copie de <Catalogue>" << endl;
+#endif
+    tailleMax = unCatalogue.tailleMax;
+    tailleAct = unCatalogue.tailleAct;
+    listeTrajets = new Trajet[unCatalogue.tailleMax];
+    unsigned int i;
+    for (i = 0; i < tailleAct; i++) {
+        listeTrajets[i] = Trajet(unCatalogue.listeTrajets[i]);
+    }
+} //----- Fin de Catalogue (constructeur de copie)
+
+
+Catalogue::Catalogue ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cerr << "Appel au constructeur de <Catalogue>" << endl;
+#endif
+    listeTrajets = new Trajet[TAILLEDEFAUT];
+    tailleMax = TAILLEDEFAUT;
+    tailleAct = 0;
+} //----- Fin de Catalogue
+
+
+Catalogue::~Catalogue ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cerr << "Appel au destructeur de <Catalogue>" << endl;
+#endif
+    unsigned int i;
+    for (i = 0; i < tailleAct; i++) {
+        delete & listeTrajets[i];
+    }
+} //----- Fin de ~Catalogue
+
+
+//------------------------------------------------------------------ PRIVE
+
+//----------------------------------------------------- Méthodes protégées
+
+void Catalogue::AggrandirListe()
+{
+#ifdef MAP
+    cerr << "Appel a la methode AggrandirListe de Catalogue" << endl;
+#endif
+    tailleMax = 2 * tailleMax;
+    Trajet * nouvelleListeTrajets = new Trajet[tailleMax];
+    unsigned int i;
+    for (i = 0; i < tailleAct; i++) {
+        nouvelleListeTrajets[i] = listeTrajets[i];
+    }
+    delete listeTrajets;
+    listeTrajets = nouvelleListeTrajets;
+}
+
