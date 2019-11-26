@@ -37,6 +37,10 @@ public:
     //
 
     void Afficher() const;
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 //------------------------------------------------- Surcharge d'opérateurs
 //    TS & operator = ( const TS & unTS );

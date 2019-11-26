@@ -28,6 +28,18 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
+void TC::Afficher() const
+{
+#ifdef MAP
+    cout << "Appel à la méthode Afficher de TC" << endl;
+#endif
+    cout << "de " << depart << " à " << arrivee << " via ";
+    int i;
+    for (i = 0; i < nbTS - 2; ++i) {
+        cout << sousTrajets[i]->getArrivee() << ", ";
+    }
+    cout << " et " << sousTrajets[nbTS - 2]->getArrivee() << endl;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 TC & TC::operator = ( const TC & unTC )

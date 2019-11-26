@@ -42,11 +42,24 @@ public:
     //
 
     Ville getDepart() const;
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
     Ville getArrivee() const;
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
 
     virtual void Afficher() const;
-    // Methode virtuelle pure -> a redef dans les classes filles
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
 
 //------------------------------------------------- Surcharge d'opérateurs
     // Trajet & operator = ( const Trajet & unTrajet );
@@ -70,7 +83,11 @@ public:
     //
 
     Trajet();
-    // constructeur par defaut
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
 
     virtual ~Trajet ( );
     // Mode d'emploi :

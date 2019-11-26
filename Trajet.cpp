@@ -33,6 +33,7 @@ void Trajet::Afficher() const
 #ifdef MAP
     cout << "Appel à la méthode Afficher de Trajet" << endl;
 #endif
+    cout << "Trajet de " << depart << " à " << arrivee << endl;
 }
 
 Ville Trajet::getDepart() const

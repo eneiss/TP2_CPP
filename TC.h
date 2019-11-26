@@ -35,8 +35,13 @@ public:
     // Contrat :
     //
 
+    void Afficher() const;
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
-//------------------------------------------------- Surcharge d'opérateurs
+    //------------------------------------------------- Surcharge d'opérateurs
     TC & operator = ( const TC & unTC );
     // Mode d'emploi :
     //
