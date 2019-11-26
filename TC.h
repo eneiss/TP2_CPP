@@ -1,33 +1,29 @@
 /*************************************************************************
-                           Catalogue  -  description
+                           TC  -  description
                              -------------------
-    début                : $DATE$
+    début                : 19/11/2019
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//------- Interface de la classe <Catalogue> (fichier Catalogue.h) -------
-#if ! defined ( CATALOGUE_H )
-#define CATALOGUE_H
+//---------- Interface de la classe TC (fichier TC.h) ----------------
+#if ! defined ( TC_H )
+#define TC_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include <iostream>
-#include <cstring>
-#include "TS.h"
-#include "TC.h"
+#include "Trajet.h"
 
 //------------------------------------------------------------- Constantes
-static unsigned int TAILLEDEFAUT = 10;
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Catalogue>
+// Rôle de la classe TC
 //
 //
 //------------------------------------------------------------------------
 
-class Catalogue
+class TC : public Trajet
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -39,45 +35,29 @@ public:
     // Contrat :
     //
 
-    void Afficher() const;
+
+//------------------------------------------------- Surcharge d'opérateurs
+    TC & operator = ( const TC & unTC );
     // Mode d'emploi :
-    //
-    // Affiche le contenu du catalogue dans le terminal
     //
     // Contrat :
     //
 
-    void AjouterTrajet();
-    // Mode d'emploi :
-    //
-    // Permet a l'utilisateur d'ajouter un trajet simple ou compose via
-    // le terminal
-    //
-    // Contrat :
-    //
-
-    void RechercheTrajet() const;
-    // Mode d'emploi :
-    //
-    // Permet a l'utilisateur de rechercher les trajets entre deux villes
-    //
-    // Contrat :
-    //
 
 //-------------------------------------------- Constructeurs - destructeur
-    Catalogue ( const Catalogue & unCatalogue );
+    TC ( const TC & unTC );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Catalogue ( );
+    TC ( unsigned int nbTrajets = 0, Trajet** listeTraj = nullptr);
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Catalogue ( );
+    virtual ~TC ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -87,22 +67,15 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-    void AggrandirListe();
-    // Mode d'emploi :
-    //
-    // Double la taille de listeTrajets (tailleMax et zone memoire
-    // allouee a listeTrajets)
-    //
-    // Contrat :
-    //
 
 //----------------------------------------------------- Attributs protégés
-    Trajet * listeTrajets;
-    unsigned int tailleAct, tailleMax;
+
+    unsigned int nbTS;
+    Trajet **sousTrajets;
 
 };
 
-//-------------------------- Autres définitions dépendantes de <Catalogue>
+//-------------------------------- Autres définitions dépendantes de TC
 
-#endif // CATALOGUE_H
+#endif // TC_H
 

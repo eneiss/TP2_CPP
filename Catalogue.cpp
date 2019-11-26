@@ -50,8 +50,9 @@ void Catalogue::AjouterTrajet()
         }
     }
 
-    Ville villeDepart, villeArrivee;
-    MT mt;
+    Ville villeDepart = new char[30];
+    Ville villeArrivee = new char[30];
+    MT mt = new char[30];
     unsigned int nbSections = 0;
     if(choix == 2){ // si c'est un trajet compose
         cout << "Nombre de sections :" << endl;
@@ -65,29 +66,31 @@ void Catalogue::AjouterTrajet()
     cout << "Moyen de transport :" << endl;
     cin >> mt;
 
-    Trajet newTrajet;
+    Trajet * newTrajet;
     if(choix == 1){
-        newTrajet = TS(villeDepart, villeArrivee, mt);
-    } else if (choix == 2){ // on lit les entrees pour determiner toutes les sections du trajet
-        Trajet * newListeTrajets = new Trajet[nbSections];
+        newTrajet = new TS(villeDepart, villeArrivee, mt);
+    } else { //if (choix == 2){ // on lit les entrees pour determiner toutes les sections du trajet
+        Trajet ** newListeTrajets = new Trajet*[nbSections];
         unsigned int i;
-        newListeTrajets[0] = Trajet(villeDepart, villeArrivee, mt);
+        newListeTrajets[0] = new TS(villeDepart, villeArrivee, mt);
         for (i = 1; i < nbSections; i++) {
+            //villeDepart = villeArrivee;
+            strcpy(villeDepart, villeArrivee);
             cout << i+1 << "e trajet" << endl;
             cout << "Ville d'arrivee :" << endl;
             cin >> villeArrivee;
             cout << "Moyen de transport :" << endl;
             cin >> mt;
-            newListeTrajets[i] = Trajet(villeDepart, villeArrivee, mt);
+            newListeTrajets[i] = new TS(villeDepart, villeArrivee, mt);
         }
-        newTrajet = TC(nbSections, newListeTrajets);
+        newTrajet = new TC(nbSections, newListeTrajets);
     }
 
     // On place le nouveau trajet dans le catalogue
     if(tailleAct == tailleMax){
         AggrandirListe();
     }
-    listeTrajets[tailleAct] = newTrajet;
+    listeTrajets[tailleAct] = *newTrajet;
     tailleAct++;
 }
 
@@ -96,12 +99,14 @@ void Catalogue::RechercheTrajet() const
 #ifdef MAP
     cerr << "Appel a la methode RechercheTrajet de Catalogue" << endl;
 #endif
-    Ville villeDepart, villeArrivee;
+    Ville villeDepart = new char[30];
+    Ville villeArrivee = new char[30];
     cin >> villeDepart;
     cin >> villeArrivee;
     unsigned int i;
     for (i = 0; i < tailleAct; i++) {
-        if((villeDepart.compare(listeTrajets[i].depart)) && (villeArrivee.compare(listeTrajets[i].arrivee))){
+        //if((villeDepart.compare(listeTrajets[i].getDepart())) && (villeArrivee.compare(listeTrajets[i].getArrivee()))){
+        if((strcmp(villeDepart, listeTrajets[i].getDepart()) == 0) && (strcmp(villeArrivee, listeTrajets[i].getArrivee()) == 0)){
             cout << "Trajet trouve : ";
             listeTrajets[i].Afficher();
             break;

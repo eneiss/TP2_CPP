@@ -1,33 +1,30 @@
 /*************************************************************************
-                           Catalogue  -  description
+                           TS  -  description
                              -------------------
-    début                : $DATE$
+    début                : 19/11/2019
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//------- Interface de la classe <Catalogue> (fichier Catalogue.h) -------
-#if ! defined ( CATALOGUE_H )
-#define CATALOGUE_H
+//---------- Interface de la classe TS (fichier TS.h) ----------------
+#include "Trajet.h"
+
+#if ! defined ( TS_H )
+#define TS_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include <iostream>
-#include <cstring>
-#include "TS.h"
-#include "TC.h"
 
 //------------------------------------------------------------- Constantes
-static unsigned int TAILLEDEFAUT = 10;
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Catalogue>
+// Rôle de la classe TS
 //
 //
 //------------------------------------------------------------------------
 
-class Catalogue
+class TS : public Trajet
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -40,44 +37,29 @@ public:
     //
 
     void Afficher() const;
-    // Mode d'emploi :
-    //
-    // Affiche le contenu du catalogue dans le terminal
-    //
-    // Contrat :
-    //
 
-    void AjouterTrajet();
-    // Mode d'emploi :
-    //
-    // Permet a l'utilisateur d'ajouter un trajet simple ou compose via
-    // le terminal
-    //
-    // Contrat :
-    //
+//------------------------------------------------- Surcharge d'opérateurs
+//    TS & operator = ( const TS & unTS );
+//    // Mode d'emploi :
+//    //
+//    // Contrat :
+//    //
 
-    void RechercheTrajet() const;
-    // Mode d'emploi :
-    //
-    // Permet a l'utilisateur de rechercher les trajets entre deux villes
-    //
-    // Contrat :
-    //
 
 //-------------------------------------------- Constructeurs - destructeur
-    Catalogue ( const Catalogue & unCatalogue );
+    TS ( const TS & unTS );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Catalogue ( );
+    TS ( const Ville & villeDepart, const Ville & villeArrivee, const MT & moyenTransp);
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Catalogue ( );
+    virtual ~TS ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -87,22 +69,14 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-    void AggrandirListe();
-    // Mode d'emploi :
-    //
-    // Double la taille de listeTrajets (tailleMax et zone memoire
-    // allouee a listeTrajets)
-    //
-    // Contrat :
-    //
 
 //----------------------------------------------------- Attributs protégés
-    Trajet * listeTrajets;
-    unsigned int tailleAct, tailleMax;
+
+    MT mt;
 
 };
 
-//-------------------------- Autres définitions dépendantes de <Catalogue>
+//-------------------------------- Autres définitions dépendantes de TS
 
-#endif // CATALOGUE_H
+#endif // TS_H
 

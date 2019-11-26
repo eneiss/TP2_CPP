@@ -1,33 +1,35 @@
 /*************************************************************************
-                           Catalogue  -  description
+                           Trajet  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 19/11/2019
+    copyright            : (C) 2019 par NEISS Emma et DUPONT Yann
+    e-mail               : -
 *************************************************************************/
 
-//------- Interface de la classe <Catalogue> (fichier Catalogue.h) -------
-#if ! defined ( CATALOGUE_H )
-#define CATALOGUE_H
+//---------- Interface de la classe Trajet (fichier Trajet.h) ----------------
+#if ! defined ( TRAJET_H )
+#define TRAJET_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include <iostream>
-#include <cstring>
-#include "TS.h"
-#include "TC.h"
 
 //------------------------------------------------------------- Constantes
-static unsigned int TAILLEDEFAUT = 10;
+#define MAP
+//#define MAX_CHAR_VILLE 30
+//#define MAX_CHAR_MT 20
 
 //------------------------------------------------------------------ Types
+//typedef char Ville[MAX_CHAR_VILLE];
+//typedef char MT[MAX_CHAR_MT];
+typedef char* Ville;
+typedef char* MT;
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Catalogue>
+// Rôle de la classe Trajet
 //
 //
 //------------------------------------------------------------------------
 
-class Catalogue
+class Trajet
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -39,45 +41,38 @@ public:
     // Contrat :
     //
 
-    void Afficher() const;
+    Ville getDepart() const;
+
+    Ville getArrivee() const;
+
+    virtual void Afficher() const;
+    // Methode virtuelle pure -> a redef dans les classes filles
+
+//------------------------------------------------- Surcharge d'opérateurs
+    // Trajet & operator = ( const Trajet & unTrajet );
     // Mode d'emploi :
-    //
-    // Affiche le contenu du catalogue dans le terminal
     //
     // Contrat :
     //
 
-    void AjouterTrajet();
-    // Mode d'emploi :
-    //
-    // Permet a l'utilisateur d'ajouter un trajet simple ou compose via
-    // le terminal
-    //
-    // Contrat :
-    //
-
-    void RechercheTrajet() const;
-    // Mode d'emploi :
-    //
-    // Permet a l'utilisateur de rechercher les trajets entre deux villes
-    //
-    // Contrat :
-    //
 
 //-------------------------------------------- Constructeurs - destructeur
-    Catalogue ( const Catalogue & unCatalogue );
+    Trajet ( const Trajet & unTrajet );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Catalogue ( );
+    Trajet ( const Ville & villeDepart, const Ville & villeArrivee);
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Catalogue ( );
+    Trajet();
+    // constructeur par defaut
+
+    virtual ~Trajet ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -87,22 +82,15 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-    void AggrandirListe();
-    // Mode d'emploi :
-    //
-    // Double la taille de listeTrajets (tailleMax et zone memoire
-    // allouee a listeTrajets)
-    //
-    // Contrat :
-    //
 
 //----------------------------------------------------- Attributs protégés
-    Trajet * listeTrajets;
-    unsigned int tailleAct, tailleMax;
+
+    Ville depart;
+    Ville arrivee;
 
 };
 
-//-------------------------- Autres définitions dépendantes de <Catalogue>
+//-------------------------------- Autres définitions dépendantes de Trajet
 
-#endif // CATALOGUE_H
+#endif // TRAJET_H
 
