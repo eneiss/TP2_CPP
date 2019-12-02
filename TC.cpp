@@ -42,6 +42,9 @@ void TC::Afficher() const
 
     int i;
     for (i = 0; i < nbTS; ++i) {
+        if(i != 0){
+            cout << "    ";
+        }
         sousTrajets[i]->Afficher();
     }
 }

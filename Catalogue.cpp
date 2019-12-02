@@ -33,6 +33,9 @@ void Catalogue::Afficher() const
         cout << i+1 << " - ";
         listeTrajets[i]->Afficher();
     }
+    if(tailleAct == 0){
+        cout << "Aucun trajet repertorie !" << endl;
+    }
 }
 
 void Catalogue::AjouterTrajet()
@@ -106,14 +109,18 @@ void Catalogue::RechercheTrajet() const
     cin >> villeDepart;
     cout << "Ville d'arrivee :" << endl;
     cin >> villeArrivee;
-    unsigned int i;
+    unsigned int i, trouve = 0;
     for (i = 0; i < tailleAct; i++) {
         //if((villeDepart.compare(listeTrajets[i].getDepart())) && (villeArrivee.compare(listeTrajets[i].getArrivee()))){
         if((strcmp(villeDepart, listeTrajets[i]->getDepart()) == 0) && (strcmp(villeArrivee, listeTrajets[i]->getArrivee()) == 0)){
             cout << "Trajet trouve : ";
             listeTrajets[i]->Afficher();
+            trouve = 1;
             //break;
         }
+    }
+    if(trouve == 0){
+        cout << "Aucun trajet trouve." << endl;
     }
 }
 
