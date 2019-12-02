@@ -88,6 +88,7 @@ void Catalogue::AjouterTrajet()
             newListeTrajets[i] = new TS(villeDepart, villeArrivee, mt);
         }
         newTrajet = new TC(nbSections, newListeTrajets);
+        delete[] newListeTrajets;
     }
 
     // On place le nouveau trajet dans le catalogue
@@ -96,6 +97,9 @@ void Catalogue::AjouterTrajet()
     }
     listeTrajets[tailleAct] = newTrajet;
     tailleAct++;
+    delete[] villeDepart;
+    delete[] villeArrivee;
+    delete[] mt;
 }
 
 void Catalogue::RechercheTrajet() const
@@ -122,6 +126,8 @@ void Catalogue::RechercheTrajet() const
     if(trouve == 0){
         cout << "Aucun trajet trouve." << endl;
     }
+    delete[] villeDepart;
+    delete[] villeArrivee;
 }
 
 
