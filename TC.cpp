@@ -1,9 +1,9 @@
 /*************************************************************************
                            TC  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 19/11/2019
+    copyright            : (C) 2019 par NEISS Emma et DUPONT Yann
+    e-mail               : -
 *************************************************************************/
 
 //---------- Réalisation de la classe TC (fichier TC.cpp) ----------------
@@ -22,11 +22,6 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type TC::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
 void TC::Afficher() const
 {
@@ -48,13 +43,6 @@ void TC::Afficher() const
         sousTrajets[i]->Afficher();
     }
 }
-
-//------------------------------------------------- Surcharge d'opérateurs
-//TC & TC::operator = ( const TC & unTC )
-//// Algorithme :
-////
-//{
-//} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur

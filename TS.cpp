@@ -1,9 +1,9 @@
 /*************************************************************************
                            TS  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 19/11/2019
+    copyright            : (C) 2019 par NEISS Emma et DUPONT Yann
+    e-mail               : -
 *************************************************************************/
 
 //---------- Réalisation de la classe TS (fichier TS.cpp) ----------------
@@ -24,11 +24,6 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type TS::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
 void TS::Afficher() const
 {
@@ -37,15 +32,6 @@ void TS::Afficher() const
 #endif
     cout << "de " << depart << " à " << arrivee << " en " << mt << endl;
 }
-
-
-//------------------------------------------------- Surcharge d'opérateurs
-//TS & TS::operator = ( const TS & unTS )
-//// Algorithme :
-////
-//{
-//} //----- Fin de operator =
-
 
 //-------------------------------------------- Constructeurs - destructeur
 TS::TS ( const TS & unTS )

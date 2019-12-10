@@ -1,9 +1,9 @@
 /*************************************************************************
                            Trajet  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 19/11/2019
+    copyright            : (C) 2019 par NEISS Emma et DUPONT Yann
+    e-mail               : -
 *************************************************************************/
 
 //---------- Réalisation de la classe Trajet (fichier Trajet.cpp) --------
@@ -39,28 +39,23 @@ void Trajet::Afficher() const
 
 Ville Trajet::getDepart() const
 {
+#ifdef MAP
+    cerr << "Appel à la méthode getDepart de Trajet" << endl;
+#endif
     return this->depart;
 }
 
 Ville Trajet::getArrivee() const
 {
+#ifdef MAP
+    cerr << "Appel à la méthode getArrivee de Trajet" << endl;
+#endif
     return this->arrivee;
 }
 
-/*
-//------------------------------------------------- Surcharge d'opérateurs
-Trajet & Trajet::operator = ( const Trajet & unTrajet )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
-*/
-
 //-------------------------------------------- Constructeurs - destructeur
 Trajet::Trajet ( const Trajet & unTrajet )
-                : Trajet(unTrajet.depart, unTrajet.arrivee)
-// Algorithme :
-//
+        : Trajet(unTrajet.getDepart(), unTrajet.getArrivee())
 {
 #ifdef MAP
     cerr << "Appel au constructeur de copie de Trajet" << endl;
@@ -95,8 +90,7 @@ Trajet::Trajet() {
 }
 
 Trajet::~Trajet ( )
-// Algorithme :
-//
+// Destruction des objets créés dynamiquement
 {
 #ifdef MAP
     cerr << "Appel au destructeur de Trajet" << endl;

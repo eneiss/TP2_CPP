@@ -2,8 +2,8 @@
                            TS  -  description
                              -------------------
     début                : 19/11/2019
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    copyright            : (C) 2019 par NEISS Emma et DUPONT Yann
+    e-mail               : -
 *************************************************************************/
 
 //---------- Interface de la classe TS (fichier TS.h) --------------------
@@ -41,14 +41,6 @@ public:
     //
     // Contrat :
     //
-
-//------------------------------------------------- Surcharge d'opérateurs
-//    TS & operator = ( const TS & unTS );
-//    // Mode d'emploi :
-//    //
-//    // Contrat :
-//    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
     TS ( const TS & unTS );

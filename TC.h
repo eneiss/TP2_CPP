@@ -2,8 +2,8 @@
                            TC  -  description
                              -------------------
     début                : 19/11/2019
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    copyright            : (C) 2019 par NEISS Emma et DUPONT Yann
+    e-mail               : -
 *************************************************************************/
 
 //---------- Interface de la classe TC (fichier TC.h) --------------------
@@ -40,14 +40,6 @@ public:
     //
     // Contrat :
     //
-
-    //------------------------------------------------- Surcharge d'opérateurs
-    TC & operator = ( const TC & unTC );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
     TC ( const TC & unTC );

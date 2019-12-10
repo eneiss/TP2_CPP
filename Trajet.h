@@ -18,14 +18,12 @@
 //#define MAX_CHAR_MT 20
 
 //------------------------------------------------------------------ Types
-//typedef char Ville[MAX_CHAR_VILLE];
-//typedef char MT[MAX_CHAR_MT];
 typedef char* Ville;
 typedef char* MT;
 
 //------------------------------------------------------------------------
 // Rôle de la classe Trajet
-//
+// Définir un trajet par ses villes de départ et d'arrivée
 //
 //------------------------------------------------------------------------
 
@@ -35,39 +33,26 @@ class Trajet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+
 
     Ville getDepart() const;
     // Mode d'emploi :
-    //
+    // Renvoie la ville de départ du trajet appelant
     // Contrat :
-    //
+    // Le pointeur renvoyé pointe directement sur la zone
+    // mémoire utilisée par l'attribut depart de l'objet
 
     Ville getArrivee() const;
     // Mode d'emploi :
-    //
+    // Renvoie la vlile d'arrivée du trajet appelant
     // Contrat :
     //
-
 
     virtual void Afficher() const;
     // Mode d'emploi :
-    //
+    // Affiche les caractéristiques du trajet appelant
     // Contrat :
     //
-
-
-//------------------------------------------------- Surcharge d'opérateurs
-    // Trajet & operator = ( const Trajet & unTrajet );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
     Trajet ( const Trajet & unTrajet );
@@ -78,9 +63,11 @@ public:
 
     Trajet ( const Ville & villeDepart, const Ville & villeArrivee);
     // Mode d'emploi :
-    //
+    // Crée un trajet ayant comme villes de départ et d'arrivée
+    // les paramètres formels villeDepart et villeArrivee
     // Contrat :
-    //
+    // Les villes sont copiées dans une zone mémoire propre à
+    // l'objet créé
 
     Trajet();
     // Mode d'emploi :
@@ -91,7 +78,7 @@ public:
 
     virtual ~Trajet ( );
     // Mode d'emploi :
-    //
+    // Détruit le trajet appelant
     // Contrat :
     //
 
