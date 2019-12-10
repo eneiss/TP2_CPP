@@ -1,12 +1,12 @@
 /*************************************************************************
                            Catalogue  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 19/11/2019
+    copyright            : (C) 2019 par Emma Neiss, Yann Dupont
+    e-mail               : emma.neiss@insa-lyon.fr yann.dupont@insa-lyon.fr
 *************************************************************************/
 
-//------- Interface de la classe <Catalogue> (fichier Catalogue.h) -------
+//-------- Interface de la classe Catalogue (fichier Catalogue.h) --------
 #if ! defined ( CATALOGUE_H )
 #define CATALOGUE_H
 
@@ -22,9 +22,9 @@ static unsigned int TAILLEDEFAUT = 10;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Catalogue>
-//
-//
+// La classe Catalogue repertorie les trajets entres par l'utilisateur
+// et met a disposition des services permettant d'en ajouter,
+// de les afficher ou d"effectuer une recherche.
 //------------------------------------------------------------------------
 
 class Catalogue
@@ -33,14 +33,8 @@ class Catalogue
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
     void Afficher() const;
-    // Mode d'emploi :
     //
     // Affiche le contenu du catalogue dans le terminal
     //
@@ -48,37 +42,40 @@ public:
     //
 
     void AjouterTrajet();
-    // Mode d'emploi :
     //
-    // Permet a l'utilisateur d'ajouter un trajet simple ou compose via
-    // le terminal
+    // Permet a l'utilisateur d'ajouter un trajet simple ou compose au catalogue
+    // Aucun parametre, la selection est effectuee via l'entree standard
     //
     // Contrat :
     //
 
     void RechercheTrajet() const;
-    // Mode d'emploi :
     //
     // Permet a l'utilisateur de rechercher les trajets entre deux villes
+    // Aucun parametre, la selection est effectuee via l'entree standard
     //
     // Contrat :
     //
 
 //-------------------------------------------- Constructeurs - destructeur
     Catalogue ( const Catalogue & unCatalogue );
-    // Mode d'emploi (constructeur de copie) :
+    //
+    // Cree un objet Catalogue par copie
+    // unCatalogue : objet Catalogue a copier
     //
     // Contrat :
     //
 
     Catalogue ( );
-    // Mode d'emploi :
+    //
+    // Cree un objet Catalogue
     //
     // Contrat :
     //
 
     virtual ~Catalogue ( );
-    // Mode d'emploi :
+    //
+    // Detruit l'objet Catalogue
     //
     // Contrat :
     //
@@ -88,10 +85,10 @@ public:
 protected:
 //----------------------------------------------------- Méthodes protégées
     void AggrandirListe();
-    // Mode d'emploi :
     //
     // Double la taille de listeTrajets (tailleMax et zone memoire
     // allouee a listeTrajets)
+    // tailleAct reste inchange
     //
     // Contrat :
     //

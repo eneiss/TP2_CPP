@@ -1,9 +1,9 @@
 /*************************************************************************
                            Catalogue  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 19/11/2019
+    copyright            : (C) 2019 par Emma Neiss, Yann Dupont
+    e-mail               : emma.neiss@insa-lyon.fr  yann.dupont@insa-lyon.fr
 *************************************************************************/
 
 //----- Réalisation de la classe <Catalogue> (fichier Catalogue.cpp) -----
@@ -21,11 +21,7 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Catalogue::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+
 void Catalogue::Afficher() const
 {
     unsigned int i;
@@ -71,13 +67,13 @@ void Catalogue::AjouterTrajet()
     cin >> mt;
 
     Trajet * newTrajet;
-    if(choix == '1'){
+    if(choix == '1'){ // trajet simple
         newTrajet = new TS(villeDepart, villeArrivee, mt);
-    } else { //if (choix == 2){ // on lit les entrees pour determiner toutes les sections du trajet
+    } else { //if (choix == 2){ // on lit les entrees pour determiner toutes les sections du trajet (compose)
         Trajet ** newListeTrajets = new Trajet*[nbSections];
         unsigned int i;
         newListeTrajets[0] = new TS(villeDepart, villeArrivee, mt);
-        for (i = 1; i < nbSections; i++) {
+        for (i = 1; i < nbSections; i++) { // pour chaque section, on demande les informations correspondantes
             //villeDepart = villeArrivee;
             strcpy(villeDepart, villeArrivee);
             cout << i+1 << "e trajet" << endl;
@@ -103,6 +99,9 @@ void Catalogue::AjouterTrajet()
 }
 
 void Catalogue::RechercheTrajet() const
+// Algorithme :
+// Parcoure la liste de trajets du Catalogue, teste pour chacun si
+// le depart et l'arrivee correspondent a ceux entres par l'utilisateur
 {
 #ifdef MAP
     cerr << "Appel a la methode RechercheTrajet de Catalogue" << endl;
@@ -113,19 +112,20 @@ void Catalogue::RechercheTrajet() const
     cin >> villeDepart;
     cout << "Ville d'arrivee :" << endl;
     cin >> villeArrivee;
+
     unsigned int i, trouve = 0;
     for (i = 0; i < tailleAct; i++) {
-        //if((villeDepart.compare(listeTrajets[i].getDepart())) && (villeArrivee.compare(listeTrajets[i].getArrivee()))){
         if((strcmp(villeDepart, listeTrajets[i]->getDepart()) == 0) && (strcmp(villeArrivee, listeTrajets[i]->getArrivee()) == 0)){
             cout << "Trajet trouve : ";
             listeTrajets[i]->Afficher();
-            trouve = 1;
-            //break;
+            trouve = 1; // on a trouve au moins un trajet correspondant
         }
     }
-    if(trouve == 0){
+
+    if(trouve == 0){ // si on n'a trouve aucun trajet, on affiche un message
         cout << "Aucun trajet trouve." << endl;
     }
+
     delete[] villeDepart;
     delete[] villeArrivee;
 }
@@ -133,8 +133,6 @@ void Catalogue::RechercheTrajet() const
 
 //-------------------------------------------- Constructeurs - destructeur
 Catalogue::Catalogue ( const Catalogue & unCatalogue )
-// Algorithme :
-//
 {
 #ifdef MAP
     cerr << "Appel au constructeur de copie de Catalogue" << endl;
@@ -150,8 +148,6 @@ Catalogue::Catalogue ( const Catalogue & unCatalogue )
 
 
 Catalogue::Catalogue ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cerr << "Appel au constructeur de Catalogue" << endl;
@@ -163,8 +159,6 @@ Catalogue::Catalogue ( )
 
 
 Catalogue::~Catalogue ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cerr << "Appel au destructeur de Catalogue" << endl;

@@ -7,6 +7,7 @@ int main() {
     Catalogue * catalogue = new Catalogue();
     char continuer = 1;
     while(continuer) {
+        // Affichage du menu
         cout << endl << "menu" << endl;
         cout << "1: ajouter un trajet" << endl;
         cout << "2: afficher le catalogue des trajets" << endl;
