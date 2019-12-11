@@ -1,9 +1,9 @@
 /*************************************************************************
-                           TS  -  description
+                           TS  -  Trajet simple
                              -------------------
     début                : 19/11/2019
     copyright            : (C) 2019 par NEISS Emma et DUPONT Yann
-    e-mail               : -
+    e-mail               : emma.neiss@insa-lyon.fr  yann.dupont@insa-lyon.fr
 *************************************************************************/
 
 //---------- Réalisation de la classe TS (fichier TS.cpp) ----------------
@@ -36,8 +36,6 @@ void TS::Afficher() const
 //-------------------------------------------- Constructeurs - destructeur
 TS::TS ( const TS & unTS )
         : Trajet(unTS.depart, unTS.arrivee), mt(unTS.mt)
-// Algorithme :
-//
 {
 #ifdef MAP
     cerr << "Appel au constructeur de copie de TS" << endl;
@@ -47,8 +45,6 @@ TS::TS ( const TS & unTS )
 
 TS::TS ( const Ville & villeDepart, const Ville & villeArrivee, const MT & moyenTransp)
         : Trajet(villeDepart, villeArrivee)
-// Algorithme :
-//
 {
 #ifdef MAP
     cerr << "Appel au constructeur de TS" << endl;
@@ -63,8 +59,6 @@ TS::TS ( const Ville & villeDepart, const Ville & villeArrivee, const MT & moyen
 
 
 TS::~TS ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cerr << "Appel au destructeur de TS" << endl;
@@ -72,9 +66,3 @@ TS::~TS ( )
 
     delete[] mt;
 } //----- Fin de ~TS
-
-
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- Méthodes protégées
-

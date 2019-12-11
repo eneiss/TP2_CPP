@@ -1,9 +1,9 @@
 /*************************************************************************
-                           TC  -  description
+                           TC  -  Trajet composé
                              -------------------
     début                : 19/11/2019
     copyright            : (C) 2019 par NEISS Emma et DUPONT Yann
-    e-mail               : -
+    e-mail               : emma.neiss@insa-lyon.fr  yann.dupont@insa-lyon.fr
 *************************************************************************/
 
 //---------- Réalisation de la classe TC (fichier TC.cpp) ----------------
@@ -17,8 +17,6 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "TC.h"
 
-//------------------------------------------------------------- Constantes
-
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
@@ -28,13 +26,6 @@ void TC::Afficher() const
 #ifdef MAP
     cerr << "Appel à la méthode Afficher de TC" << endl;
 #endif
-    /*cout << "de " << depart << " à " << arrivee << " via ";
-    int i;
-    for (i = 0; i < nbTS - 2; ++i) {
-        cout << sousTrajets[i]->getArrivee() << ", ";
-    }
-    cout << " et " << sousTrajets[nbTS - 2]->getArrivee() << endl;*/
-
     int i;
     for (i = 0; i < nbTS; ++i) {
         if(i != 0){
@@ -48,8 +39,6 @@ void TC::Afficher() const
 //-------------------------------------------- Constructeurs - destructeur
 TC::TC ( const TC & unTC )
         : Trajet(unTC.depart, unTC.arrivee), nbTS(unTC.nbTS), sousTrajets(unTC.sousTrajets)
-// Algorithme :
-//
 {
 #ifdef MAP
     cerr << "Appel au constructeur de copie de TC" << endl;
@@ -59,8 +48,6 @@ TC::TC ( const TC & unTC )
 
 TC::TC ( const unsigned int nbTrajets , Trajet** const listeTraj)
         : nbTS(nbTrajets), Trajet(listeTraj[0]->getDepart(), listeTraj[nbTrajets-1]->getArrivee())
-// Algorithme :
-//
 {
 #ifdef MAP
     cerr << "Appel au constructeur de TC" << endl;
@@ -75,8 +62,6 @@ TC::TC ( const unsigned int nbTrajets , Trajet** const listeTraj)
 
 
 TC::~TC ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cerr << "Appel au destructeur de TC" << endl;
@@ -88,9 +73,3 @@ TC::~TC ( )
     }
     delete[] sousTrajets;
 } //----- Fin de ~TC
-
-
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- Méthodes protégées
-

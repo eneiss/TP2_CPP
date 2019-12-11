@@ -1,9 +1,9 @@
 /*************************************************************************
-                           Trajet  -  description
+                           Trajet  -  trajet
                              -------------------
     début                : 19/11/2019
     copyright            : (C) 2019 par NEISS Emma et DUPONT Yann
-    e-mail               : -
+    e-mail               : emma.neiss@insa-lyon.fr  yann.dupont@insa-lyon.fr
 *************************************************************************/
 
 //---------- Réalisation de la classe Trajet (fichier Trajet.cpp) --------
@@ -18,16 +18,9 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "Trajet.h"
 
-//------------------------------------------------------------- Constantes
-
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Trajet::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
 void Trajet::Afficher() const
 {
@@ -99,9 +92,3 @@ Trajet::~Trajet ( )
     delete[] arrivee;
 
 } //----- Fin de ~Trajet
-
-
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- Méthodes protégées
-
