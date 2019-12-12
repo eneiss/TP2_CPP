@@ -2,13 +2,8 @@
 OBJ=Trajet.o TS.o TC.o Catalogue.o main.o
 EXEC=TP2
 FLAGS=-g -o0
+DEFINES=
 
-%.o : %.cpp %.h
-	g++ -c $<
-
-$(EXEC) : $(OBJ)
-	g++ $(FLAGS) -o $(EXEC) $(OBJ)
-	
 .PHONY : clear
 
 clear :
@@ -17,7 +12,13 @@ clear :
 run : $(EXEC)
 	./TP2
 
-build_MAP :
-	FLAGS += -DMAP
-	$(EXEC)
+%.o : %.cpp %.h
+	g++ -c $(DEFINES) $<
+	
+$(EXEC) : $(OBJ)
+	g++ $(FLAGS) $(DEFINES) -o $(EXEC) $(OBJ)
+
+build_MAP: DEFINES = -DMAP
+
+build_MAP : $(EXEC)
 	
