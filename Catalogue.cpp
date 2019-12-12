@@ -18,6 +18,8 @@ using namespace std;
 #include "Catalogue.h"
 
 //------------------------------------------------------------- Constantes
+static int CODE0 = 48;
+static int CODE9 = 57;
 
 //----------------------------------------------------------------- PUBLIC
 
@@ -25,6 +27,9 @@ using namespace std;
 
 void Catalogue::Afficher() const
 {
+#ifdef MAP
+    cerr << "Appel a la methode Afficher de Catalogue" << endl;
+#endif
     unsigned int i;
     for (i = 0; i < tailleAct; i++) {
         cout << i+1 << " - ";
@@ -64,8 +69,8 @@ void Catalogue::AjouterTrajet()
         char input;
         while(true){
             cin >> input;
-            if((48<=input) && (input<=57)){ // le caractere suivant est un chiffre
-                nbSections = nbSections*10 + input-48;
+            if((CODE0<=input) && (input<=CODE9)){ // le caractere suivant est un chiffre
+                nbSections = nbSections*10 + input-CODE0;
             } else {
                 cin.ignore(10000, '\n');
                 if(nbSections == 0){ // si ce n'est pas un chiffre, on redemande une entree tant que nbSection est nul
@@ -127,7 +132,7 @@ void Catalogue::AjouterTrajet()
 
 void Catalogue::RechercheTrajet() const
 // Algorithme :
-// Parcoure la liste de trajets du Catalogue, teste pour chacun si
+// Parcourt la liste de trajets du Catalogue, teste pour chacun si
 // le depart et l'arrivee correspondent a ceux entres par l'utilisateur
 {
 #ifdef MAP
