@@ -13,3 +13,11 @@ $(EXEC) : $(OBJ)
 
 clear :
 	rm $(OBJ) $(EXEC)
+
+run : $(EXEC)
+	./TP2
+
+build_MAP :
+	FLAGS += -DMAP
+	$(EXEC)
+	
