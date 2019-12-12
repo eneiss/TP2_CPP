@@ -1,5 +1,6 @@
 /*************************************************************************
-                           Catalogue  -  description
+                           Catalogue  -  Stocke la liste des trajets et
+                           permet de la gerer (ajout, recherche, affichage)
                              -------------------
     début                : 19/11/2019
     copyright            : (C) 2019 par Emma Neiss, Yann Dupont

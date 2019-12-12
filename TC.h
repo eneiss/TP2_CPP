@@ -1,7 +1,7 @@
 /*************************************************************************
-                           TC  -  Trajet composé possédantune liste de
-                           sous-trajets et du nombre de sous-trajets qui
-                           le composent
+                           TC  -  Trajet composé possédant une liste de
+                           sous-trajets et le nombre de sous-trajets dans
+                           cette liste
                              -------------------
     début                : 19/11/2019
     copyright            : (C) 2019 par NEISS Emma et DUPONT Yann
