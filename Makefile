@@ -1,7 +1,7 @@
 
 OBJ=Trajet.o TS.o TC.o Catalogue.o main.o
 EXEC=TP2
-FLAGS=-g -o0
+FLAGS=-g -o0 -ansi-pedantic–Wall –std=c++11
 DEFINES=
 
 .PHONY : clear
