@@ -1,5 +1,6 @@
 /*************************************************************************
-                           Catalogue  -  description
+                           Catalogue  -  Stocke la liste des trajets et
+                           permet de la gerer (ajout, recherche, affichage)
                              -------------------
     début                : 19/11/2019
     copyright            : (C) 2019 par Emma Neiss, Yann Dupont
@@ -77,16 +78,19 @@ void Catalogue::AjouterTrajet()
                 break;
             }
         }
+        cin.ignore(10000, '\n');
 
         cout << "1er trajet" << endl;
     }
+
     cout << "Ville de depart :" << endl;
-    cin >> villeDepart;
-    //getline(cin, &villeDepart, MAX_CHAR_VILLE);
+    cin.getline(villeDepart, MAX_CHAR_VILLE, '\n');
+
     cout << "Ville d'arrivee :" << endl;
-    cin >> villeArrivee;
+    cin.getline(villeArrivee, MAX_CHAR_VILLE, '\n');
+
     cout << "Moyen de transport :" << endl;
-    cin >> mt;
+    cin.getline(mt, MAX_CHAR_VILLE, '\n');
 
     // on cree le nouveau trajet
     Trajet * newTrajet;
@@ -101,9 +105,9 @@ void Catalogue::AjouterTrajet()
             strcpy(villeDepart, villeArrivee);
             cout << i+1 << "e trajet" << endl;
             cout << "Ville d'arrivee :" << endl;
-            cin >> villeArrivee;
+            cin.getline(villeArrivee, MAX_CHAR_VILLE, '\n');
             cout << "Moyen de transport :" << endl;
-            cin >> mt;
+            cin.getline(mt, MAX_CHAR_VILLE, '\n');
             newListeTrajets[i] = new TS(villeDepart, villeArrivee, mt);
         }
         newTrajet = new TC(nbSections, newListeTrajets);
@@ -132,9 +136,9 @@ void Catalogue::RechercheTrajet() const
     Ville villeDepart = new char[30];
     Ville villeArrivee = new char[30];
     cout << "Ville de depart :" << endl;
-    cin >> villeDepart;
+    cin.getline(villeDepart, MAX_CHAR_VILLE, '\n');
     cout << "Ville d'arrivee :" << endl;
-    cin >> villeArrivee;
+    cin.getline(villeArrivee, MAX_CHAR_VILLE, '\n');
 
     unsigned int i, trouve = 0;
     for (i = 0; i < tailleAct; i++) {

@@ -80,7 +80,7 @@ Trajet::Trajet ( const Ville & villeDepart, const Ville & villeArrivee)
 Trajet::Trajet()
 {
 #ifdef MAP
-    cerr << "Appel au constructeur par défaut de Trajet" << endl;
+    cerr << "Appel au constructeur par defaut de Trajet" << endl;
 #endif
     depart = new char[MAX_CHAR_VILLE];
     arrivee = new char[MAX_CHAR_VILLE];
