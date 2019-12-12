@@ -5,7 +5,8 @@ using namespace std;
 int main() {
 
     Catalogue * catalogue = new Catalogue();
-    char continuer = 1;
+    char choix, continuer = 1;
+
     while(continuer) {
         // Affichage du menu
         cout << endl << "menu" << endl;
@@ -14,19 +15,19 @@ int main() {
         cout << "3: rechercher dans le catalogue" << endl;
         cout << "0: quitter" << endl;
 
-        int choix;
         cin >> choix;
+        cin.ignore(10000, '\n');
         switch (choix) {
-            case 0:
+            case '0':
                 continuer = 0;
                 break;
-            case 1:
+            case '1':
                 catalogue->AjouterTrajet();
                 break;
-            case 2:
+            case '2':
                 catalogue->Afficher();
                 break;
-            case 3:
+            case '3':
                 catalogue->RechercheTrajet();
                 break;
             default:

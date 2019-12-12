@@ -50,22 +50,45 @@ void Catalogue::AjouterTrajet()
         cin.ignore(10000, '\n');
     }
 
-    Ville villeDepart = new char[30];
-    Ville villeArrivee = new char[30];
-    MT mt = new char[30];
+    // on cree les variables pour stocker les informations sur le nouveau trajet
+    Ville villeDepart = new char[MAX_CHAR_VILLE];
+    Ville villeArrivee = new char[MAX_CHAR_VILLE];
+    MT mt = new char[MAX_CHAR_VILLE];
     unsigned int nbSections = 0;
+
     if(choix == '2'){ // si c'est un trajet compose
         cout << "Nombre de sections :" << endl;
-        cin >> nbSections;
+
+        // recuperation de nbSection securisee
+        char input;
+        while(true){
+            cin >> input;
+            if((48<=input) && (input<=57)){ // le caractere suivant est un chiffre
+                nbSections = nbSections*10 + input-48;
+            } else {
+                cin.ignore(10000, '\n');
+                if(nbSections == 0){ // si ce n'est pas un chiffre, on redemande une entree tant que nbSection est nul
+                    cout << "Choix incorrect" << endl;
+                    continue;
+                }
+                break; // on a eu un caractere non-chiffre mais nbSection est deja determine -> on sort
+            }
+            if((cin.peek() == EOF) && (nbSections != 0)){ // si il n'y a plus de caractere a lire
+                break;
+            }
+        }
+
         cout << "1er trajet" << endl;
     }
     cout << "Ville de depart :" << endl;
     cin >> villeDepart;
+    //getline(cin, &villeDepart, MAX_CHAR_VILLE);
     cout << "Ville d'arrivee :" << endl;
     cin >> villeArrivee;
     cout << "Moyen de transport :" << endl;
     cin >> mt;
 
+    // on cree le nouveau trajet
     Trajet * newTrajet;
     if(choix == '1'){ // trajet simple
         newTrajet = new TS(villeDepart, villeArrivee, mt);

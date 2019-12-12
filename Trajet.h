@@ -11,8 +11,7 @@
 #define TRAJET_H
 
 //------------------------------------------------------------- Constantes
-#define MAP
-#define MAX_CHAR_VILLE 30
+#define MAX_CHAR_VILLE 31
 
 //------------------------------------------------------------------ Types
 typedef char* Ville;
