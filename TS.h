@@ -1,5 +1,6 @@
 /*************************************************************************
-                           TS  -  Trajet simple
+                           TS  -  Trajet simple possédant un moyen de
+                           transport propre
                              -------------------
     début                : 19/11/2019
     copyright            : (C) 2019 par NEISS Emma et DUPONT Yann

@@ -1,5 +1,6 @@
 /*************************************************************************
-                           Trajet  -  trajet
+                           Trajet  -  classe représentant un trajet
+                           par ses villes de départ et d'arrivée
                              -------------------
     début                : 19/11/2019
     copyright            : (C) 2019 par NEISS Emma et DUPONT Yann

@@ -29,7 +29,7 @@ void TS::Afficher() const
 #ifdef MAP
     cerr << "Appel à la méthode Afficher de TS" << endl;
 #endif
-    cout << "de " << depart << " à " << arrivee << " en " << mt << endl;
+    cout << "de " << depart << " a " << arrivee << " en " << mt << endl;
 }
 
 //-------------------------------------------- Constructeurs - destructeur

@@ -1,5 +1,7 @@
 /*************************************************************************
-                           TC  -  Trajet composé
+                           TC  -  Trajet composé possédantune liste de
+                           sous-trajets et du nombre de sous-trajets qui
+                           le composent
                              -------------------
     début                : 19/11/2019
     copyright            : (C) 2019 par NEISS Emma et DUPONT Yann
